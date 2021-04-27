@@ -1,0 +1,57 @@
+SQL TOP, LIMIT, FETCH FIRST or ROWNUM Clause
+
+The SELECT TOP clause is used to specify the number of records to return.
+The SELECT TOP clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.
+
+Note: Not all database systems support the SELECT TOP clause. MySQL supports the LIMIT clause to select a limited number of records, while Oracle uses FETCH FIRST n ROWS ONLY and ROWNUM.
+
+
+SQL TOP, LIMIT and FETCH FIRST example: selects the first three records from the "Customers" table
+
+For SQL Server/MS Access:
+
+SELECT TOP 3 * FROM Customers;
+
+For MySQL:
+
+SELECT * FROM Customers
+LIMIT 3;
+
+For Oracle:
+
+SELECT * FROM Customers
+FETCH FIRST 3 ROWS ONLY;
+
+
+SQL TOP PERCENT example: select the first 50% of the records from ther "Customers" table
+
+For SQL Server/MS Access:
+
+SELECT TOP 50 PERCENT * FROM Customers;
+
+For Oracle:
+
+SELECT * FROM Customers
+FETCH FIRST 50 PERCENT ROWS ONLY;
+
+
+ADD a WHERE CLAUSE
+
+Example: select the first three records from the "Customers" table, where the country is "Germany"
+
+For SQL Server/MS Access:
+
+SELECT TOP 3 * FROM Customers
+WHERE Country='Germany';
+
+For MySQL:
+
+SELECT * FROM Customers
+WHERE Country='Germany'
+LIMIT 3;
+
+For Oracle:
+
+SELECT * FROM Customers
+WHERE Country='Germany'
+FETCH FIRST 3 ROWS ONLY;

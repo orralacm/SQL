@@ -1,0 +1,57 @@
+SQL Wildcards
+
+A wildcard character is used to substitute one or more characters in a string.
+Wildcard characters are used with the LIKE operator. The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+Wildcard Characters in MS Access
+
+Symbol	Description
+*	Represents zero or more characters
+?	Represents a single character
+[]	Represents any single character within the brackets
+!	Represents any character not in the brackets
+-	Represents a range of characters
+#	Represents any single numeric character
+
+Wildcard Characters in SQL Server
+
+Symbol	Description
+%	Represents zero or more characters
+_	Represents a single character
+[]	Represents any single character within the brackets
+^	Represents any character not in the brackets
+-	Represents a range of characters
+
+All the wildcards can also be used in combinations!
+
+
+Using the % Wildcard
+The following SQL statement selects all customers with a City starting with "ber":
+
+Example
+SELECT * FROM Customers
+WHERE City LIKE 'ber%';
+
+
+Using the _ Wildcard
+The following SQL statement selects all customers with a City starting with "L", followed by any character, followed by "n", followed by any character, followed by "on":
+
+Example
+SELECT * FROM Customers
+WHERE City LIKE 'L_n_on';
+
+
+Using the [charlist] Wildcard
+The following SQL statement selects all customers with a City starting with "b", "s", or "p":
+
+Example
+SELECT * FROM Customers
+WHERE City LIKE '[bsp]%';
+
+
+Using the [!charlist] Wildcard
+The two following SQL statements select all customers with a City NOT starting with "b", "s", or "p":
+
+Example
+SELECT * FROM Customers
+WHERE City LIKE '[!bsp]%';
